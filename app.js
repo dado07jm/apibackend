@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+var cors = require('cors');
 
 //VARIABLES DE RUTAS
 var usersRouter = require('./routers/user');
@@ -22,6 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({
   extended: false
 }));
+app.use(cors());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -30,7 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/users', usersRouter);
 
 
-if (process.env.NODE_ENV !== 'Development') {
+if (process.env.NODE_ENV === 'Development') {
   require('./config').config();
 }
 

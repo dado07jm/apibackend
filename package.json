@@ -4,7 +4,7 @@
   "description": "Api Backend Uade",
   "private": true,
   "scripts": {
-    "start": "NODE_ENV=Development nodemon  ./bin/www"
+    "start": "nodemon app.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

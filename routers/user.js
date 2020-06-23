@@ -7,12 +7,7 @@ var Authorization = require('../auth/authorization');
 router.post('/user/',UserController.findUser) //busca un usuario
 router.post('/create', UserController.createUser) //crea el usuario
 router.get('/allusers',Authorization,UserController.getAllUsers) //devuelve todos los usuarios
-
-
-
-//router.get('/user/:id',UserController.getUser) //devuelve un usuario
-
-//router.post('/user/create',UserController.createUser) //crea el usuario
-//router.put('/user/update',UserController.updateUser) //actualiza el usuario
+router.post('/update',Authorization,UserController.updateUser) //edita los puntos del usuario
+router.get('/user/validar',Authorization,UserController.getUserVal) //valida si el token esta correcto
 
 module.exports = router;
